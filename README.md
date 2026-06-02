@@ -19,7 +19,7 @@
 ### 新規プロジェクトの作成
 
 ```bash
-copier copy gh:zaspa/python-template <出力先ディレクトリ>
+copier copy gh:za-spa/python-template <出力先ディレクトリ>
 ```
 
 対話形式で以下を入力します：
