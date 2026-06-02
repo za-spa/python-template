@@ -31,3 +31,10 @@ tasks:
     desc: run type checker
     cmds:
       - uv run pyright
+
+  check:
+    desc: run lint, format, and typecheck
+    cmds:
+      - task: lint
+      - task: format
+      - task: typecheck
