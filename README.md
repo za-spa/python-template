@@ -2,6 +2,9 @@
 
 [copier](https://copier.readthedocs.io/) を使ったPythonプロジェクトのテンプレートです。
 
+> [!NOTE]
+> このテンプレートはVSCodeでの利用を前提とした設定（`.vscode/extensions.json`、`.vscode/settings.json`）が含まれています。
+
 ## 含まれるもの
 
 | ツール | 用途 |
