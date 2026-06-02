@@ -1,0 +1,73 @@
+[project]
+name = "{{ project_name }}"
+version = "0.1.0"
+description = "Add your description here"
+readme = "README.md"
+requires-python = ">={{ python_version }}"
+dependencies = []
+
+[dependency-groups]
+dev = [
+    "pytest",
+    "ruff",
+    "pyright",
+    "pre-commit",
+]
+
+{% if has_cli %}
+
+[project.scripts]
+{{ package_name }} = "{{ package_name }}:main"
+{% endif %}
+{% if is_package %}
+
+[build-system]
+requires = ["uv_build>=0.11.12,<0.12.0"]
+build-backend = "uv_build"
+{% else %}
+
+[tool.uv]
+package = false
+{% endif %}
+
+[tool.pyright]
+typeCheckingMode = "standard"
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+
+[tool.ruff]
+# Exclude a variety of commonly ignored directories.
+exclude = [
+    ".git",
+    ".pytest_cache",
+    ".pytype",
+    ".ruff_cache",
+    ".venv",
+    ".vscode",
+    "__pypackages__",
+]
+
+# Same as Black.
+line-length = 88
+indent-width = 4
+
+target-version = "py{{ python_version | replace('.', '') }}"
+
+[tool.ruff.lint]
+select = [
+  "F", # Flake8
+  "B", # flake8-bugbear
+  "I", # isort
+  "E", # error
+  "W"  # warning
+]
+ignore = []
+fixable = ["ALL"]
+
+[tool.ruff.format]
+quote-style = "double"
+indent-style = "space"
+skip-magic-trailing-comma = false
+line-ending = "auto"
+

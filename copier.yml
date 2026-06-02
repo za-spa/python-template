@@ -1,0 +1,25 @@
+_subdirectory: template
+
+project_name:
+  type: str
+  help: Project name
+
+package_name:
+  type: str
+  help: Python package name
+  default: "{{ project_name | lower | replace('-', '_') }}"
+
+python_version:
+  type: str
+  default: "3.12"
+
+is_package:
+  type: bool
+  default: true
+  help: Install this project as a package?
+
+has_cli:
+  type: bool
+  default: false
+  help: Add CLI entry point?
+  when: "{{ is_package }}"

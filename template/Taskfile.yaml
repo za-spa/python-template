@@ -1,0 +1,33 @@
+version: '3'
+
+tasks:
+  default:
+    desc: show commands
+    cmds:
+      - task -l --sort none
+
+  setup:
+    desc: set up environment
+    cmds:
+      - uv sync
+      - uv run pre-commit install
+
+  lint:
+    desc: run linter
+    cmds:
+      - uv run ruff check --fix
+
+  format:
+    desc: format code
+    cmds:
+      - uv run ruff format
+
+  test:
+    desc: run tests
+    cmds:
+      - uv run pytest
+
+  typecheck:
+    desc: run type checker
+    cmds:
+      - uv run pyright
