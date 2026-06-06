@@ -83,3 +83,7 @@ task format     # コードフォーマット
 task test       # テスト実行
 task typecheck  # 型チェック実行
 ```
+
+## ライセンス
+
+[MIT License](LICENSE)
