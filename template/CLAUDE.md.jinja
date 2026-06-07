@@ -1,0 +1,41 @@
+# CLAUDE.md
+
+## Setup
+
+```bash
+task setup   # install dependencies and set up pre-commit hooks
+```
+
+## Common Commands
+
+```bash
+task check       # run lint, format, and typecheck (use before committing)
+task test        # run tests
+task lint        # run linter (ruff check --fix)
+task format      # format code (ruff format)
+task typecheck   # run type checker (pyright)
+```
+
+`task check` runs lint → format → typecheck in sequence. Run this before pushing.
+
+## Running Individual Tools
+
+```bash
+uv run ruff check       # lint only
+uv run ruff format      # format only
+uv run pyright          # type check only
+uv run pytest           # test only
+```
+
+## Project Structure
+
+```
+{{ project_name }}/
+{% if is_package %}├── src/
+│   └── {{ package_name }}/
+│       └── __init__.py
+{% endif %}├── tests/
+│   └── test_sample.py
+├── pyproject.toml
+└── Taskfile.yaml
+```
