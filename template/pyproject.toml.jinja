@@ -4,7 +4,13 @@ version = "0.1.0"
 description = "Add your description here"
 readme = "README.md"
 requires-python = ">={{ python_version }}"
+{% if not is_package %}
+dependencies = [
+    "loguru",
+]
+{% else %}
 dependencies = []
+{% endif %}
 
 [dependency-groups]
 dev = [
